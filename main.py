@@ -2,9 +2,13 @@
 Returneaza true daca n este prim si false daca nu.
 '''
 def is_prime(n):
-  # codul vostru aici
-  return 1
-  
+  if n > 1:
+    for i in range(2, int(n / 2) + 1):
+      if (n % i) == 0:
+        return False
+    return True
+  else:
+    return False
   
 '''
 Returneaza produsul numerelor din lista lst.
@@ -20,8 +24,11 @@ def get_product(lst):
 Returneaza CMMDC a doua numere x si y folosind primul algoritm.
 '''
 def get_cmmdc_v1(x, y):
-  # codul vostru aici
-  return 3
+  if y == 0:
+    return x
+  elif x== 0:
+    return y
+  return get_cmmdc_v1(y,x%y)
   
   
 '''
@@ -36,6 +43,12 @@ def main():
   # interfata de tip consola aici
   lista = [3,5,7,1,5]
   print(get_product(lista))
+  a=12
+  b=16
+  print(get_cmmdc_v1(a,b))
+  nrprim = 13
+  print(is_prime(nrprim))
+  print(is_prime(12))
 
 if __name__ == '__main__':
   main()
