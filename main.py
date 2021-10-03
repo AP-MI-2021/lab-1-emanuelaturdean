@@ -36,7 +36,16 @@ Returneaza CMMDC a doua numere x si y folosind al doilea algoritm.
 '''
 def get_cmmdc_v2(x, y):
   # codul vostru aici
-  return 0
+  if x == 0:
+    return y
+  if y == 0:
+    return x
+  if x == y:
+    return x
+  if x > y:
+    return get_cmmdc_v2(x-y,y)
+  return get_cmmdc_v2(x,y-x)
+
   
 
 def main():
@@ -49,6 +58,7 @@ def main():
   nrprim = 13
   print(is_prime(nrprim))
   print(is_prime(12))
+  print(get_cmmdc_v2(25,10))
 
 if __name__ == '__main__':
   main()
